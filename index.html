@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="assets/javascript/game.js"></script>
     <link href="assets/css/reset.css">
-    <title>Document</title>
+    <title>Hangman</title>
 </head>
+
 <body>
-    
+    <header>Name That Indie Band</header>
+    <pre>    _________
+            |         |
+            |         0
+            |        /|\
+            |        / \
+            |
+            |__HANG_AN</pre>
+
+    <div class="game">
+        <p>To guess, type a letter...<span id="user-text"></span></p>
+    </div>
+
+    <script>
+        var indieBands = ["menomena", "battles", "faraquet"];
+        var blanks = [];
+        var band = indieBands[Math.floor(Math.random() * indieBands.length)];
+        var guessesLeft = band.length;
+        var userGuess = document.getElementById("user-text");
+
+        console.log(band);
+
+        for (i = 0; i < band.length; i++) {
+            blanks[i] = "_";
+            console.log("----1st for loop")
+            console.log(band);
+        }
+
+        document.querySelector(".game").innerHTML = blanks;
+
+        document.onkeyup = function (event) {
+            var userGuess = String.fromCharCode(event.key).toLowerCase();
+            if(userGuess === band[i]) {
+                
+                alert("You chose " + userGuess + ". That is correct!");
+
+            } else {
+                alert("You chose " + userGuess + ". Try again.");
+            }
+        
+
+        }
+
+    </script>
+
 </body>
+
 </html>
